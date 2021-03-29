@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Alert } from 'react-native'
+import { StyleSheet, View, Alert } from 'react-native'
+import Header from './src/components/Header';
 import MineField from './src/components/MineField';
-import { cloneBoard, createMinedBoard, hasExplosion, invertFlag, openField, showMines, wonGame } from './src/functions';
+import { cloneBoard, createMinedBoard, flagsUsed, hasExplosion, invertFlag, openField, showMines, wonGame } from './src/functions';
 import params from './src/params'
 
 export default class App extends Component {
@@ -61,15 +62,17 @@ export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Iniciando o Mines!</Text>
-                <Text>Tamanho da Grade: {params.getRowsAmount()} x {params.getColumnsAmount()}</Text>
-            <View style={styles.board}>
-                <MineField 
-                    board={this.state.board} 
-                    onOpenField={this.onOpenField} 
-                    onSelectField={this.onSelectField}    
+                <Header 
+                    flagsLeft={this.minesAmount() - flagsUsed(this.state.board) } 
+                    onNewGame={() => this.setState(this.createState())}
                 />
-            </View>
+                <View style={styles.board}>
+                    <MineField 
+                        board={this.state.board} 
+                        onOpenField={this.onOpenField} 
+                        onSelectField={this.onSelectField}    
+                    />
+                </View>
             </View>
         )
     }
@@ -83,6 +86,6 @@ const styles = StyleSheet.create({
     },
     board: {
         alignItems: "center",
-        backgroundColor: "black"
+        backgroundColor: "#cfead9"
     }
 })
