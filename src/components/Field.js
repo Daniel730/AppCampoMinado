@@ -16,10 +16,10 @@ export default props => {
 
     let color = null
     if(nearMines > 0){
-        if(nearMines == 1) color = "#2f4f4f"
-        if(nearMines == 2) color = "#253f3f"
-        if(nearMines >= 2 && nearMines <= 6) color = "#1c2f2f"
-        if(nearMines >= 6) color= "#121f1f"
+        if(nearMines == 1) color = "#285244"
+        if(nearMines == 2) color = "#3d7b66"
+        if(nearMines >= 2 && nearMines <= 6) color = "#51a488"
+        if(nearMines >= 6) color= "#66cdaa"
     }
 
     return(
@@ -55,15 +55,15 @@ const styles = StyleSheet.create({
         borderWidth: params.borderSize,
     },
     regular: {
-        backgroundColor: "#b20000",
-        borderLeftColor: '#770000',
-        borderTopColor: "#770000",
-        borderRightColor: "#150000",
-        borderBottomColor: "#150000"
+        backgroundColor: "#66cdaa",
+        borderLeftColor: '#51a488',
+        borderTopColor: "#51a488",
+        borderRightColor: "#336655",
+        borderBottomColor: "#336655"
     },
     opened: {
-        backgroundColor: "#b20000",
-        borderColor: "#770000",
+        backgroundColor: "#66cdaa",
+        borderColor: "#336655",
         alignItems: 'center',
         justifyContent: "center"
     },
