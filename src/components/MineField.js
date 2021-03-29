@@ -10,6 +10,7 @@ export default props => {
                     {...field} 
                     key={c} 
                     onOpen={() => props.onOpenField(r, c)} 
+                    onSelect={e => props.onSelectField(r, c)}
                 />
             )
         })
