@@ -42,7 +42,7 @@ const cloneBoard = board => {
     })
 }
 
-const getNeighbors = (board, row, column) => {
+const getNeighbors = (board, row, col) => {
     const neighbors = []
     const rows = [row - 1, row, row + 1]
     const cols = [col - 1, col, col + 1]
@@ -72,7 +72,8 @@ const openField = (board, row, col) => {
         if(field.mined){
             field.exploded = true
         }else if(safeNeighborhood(board, row, col)){ 
-            getNeighbors(board, row, col).forEach(n => openField(board, n.row, n.col))
+            console.log("Entrou recursivo")
+            getNeighbors(board, row, col).forEach(n => openField(board, n.row, n.column))
         }else{
             const neighbors = getNeighbors(board, row, col)
             field.nearMines = neighbors.filter(n => n.mined).length
