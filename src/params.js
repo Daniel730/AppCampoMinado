@@ -7,12 +7,14 @@ const params ={
     headerRatio: 0.15, //proporção do painel superior na tela
     difficultLevel: 0.1,
     getColumnsAmount() {
-        const width = Dimensions.get('width').width
+        const width = Dimensions.get('window').width
         return Math.floor(width / this.blockSize)
     },
     getRowsAmount() {
-        const totalHeight = Dimensions.get('width').height
+        const totalHeight = Dimensions.get('window').height
         const boardHeight = totalHeight * (1 - this.headerRatio);
         return Math.floor(boardHeight / this.blockSize)
     }
 }
+
+export default params;
